@@ -1,0 +1,446 @@
+body {
+  background-color: #6A8A82;
+}
+
+.main-wrapper {
+  position: relative;
+  margin: auto;
+  width: 520px;
+  height: 720px;
+  font-family:sans-serif;
+}
+
+#main-window {
+  position: relative;
+  background-color: tan;
+  margin: auto;
+  padding: 0px;
+  width: 520px;
+  height: 720px;
+  border-radius: 15px;
+  filter:brightness(25%);
+
+}
+
+    #open-menu-icon {
+        width: 30px;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        cursor: pointer;
+    }
+
+    #stats-box {
+      /* background-color: #A7414A; */
+      position: absolute;
+      width: 363px;
+      height: 50px;
+      top: 3px;
+      right: 88px;
+      border-radius: 5px;
+      display: none;
+    }
+
+      .score {
+        position: absolute;
+        top: 10px;
+        color: black;
+        font-size: 16px;
+      }
+
+      #correct {
+        left: 45px;
+      }
+
+      #total {
+        left: 145px;
+        /* color: white; */
+        font-weight: bold;
+      }
+
+      #wrong {
+        left: 230px;
+      }
+
+  #seconds-counter {
+    position: absolute;
+    /* font-family: sans-serif; */
+    font-size: 20px;
+    color: black;
+    top: 10px;
+    right: 40px;
+    display: none;
+  }
+
+    #resetButton {
+      height: 40px;
+      width: 110px;
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      padding: 10px;
+      z-index: 2;
+      background-color: #6A8A82;
+      opacity: 0;
+      font-size: 16px;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+
+    #resetButton:hover {
+      opacity: 1;
+    }
+
+  #staff-container {
+    position: absolute;
+    top: 120px;
+    left: 70px;
+  }
+
+      /* ledger lines 24px apart */
+      #staff {
+        position: absolute
+        top: 0px;
+        z-index: 1;
+      }
+
+      .lines {
+        stroke: black;
+        stroke-width: 2px;
+      }
+
+      #treble {
+        display: none;
+        position: absolute;
+        transform: scale(.90);
+        top: -60px;
+        left: -20px;
+      }
+
+      #bass {
+        display: none;
+        position: absolute;
+        transform: scale(.90);
+        top: -60px;
+        left: -20px;
+      }
+
+      #accidental-box {
+        position: absolute;
+        top: -55px;
+        z-index: 4;
+      }
+
+      .accidental {
+        position: absolute;
+        transform: scale(.60);
+        display:none;
+      }
+      #flat1{top:42px; left:70px;}
+      #flat2{top:6px; left:90px; }
+      #flat3{top:54px; left:110px; }
+      #flat4{top:18px; left:130px; }
+      #flat5{top:66px; left:150px; }
+      #flat6{top:30px; left:170px; }
+
+      #sharp1 {top: 0px; left: 70px; }
+      #sharp2 {top: 36px; left: 90px; }
+      #sharp3 { top: -12px; left: 110px; }
+      #sharp4 { top: 24px; left: 130px;  }
+      #sharp5 { top: 60px; left: 150px;  }
+      #sharp6 { top: 12px; left: 170px; }
+
+  #note-display {
+    position: absolute;
+    top: 170px;
+    left: 114px;
+    z-index: 2;
+    transform-origin: 16px 11px;
+    display: none;
+  }
+      #head {
+        position: absolute;
+        background-color: black;
+        top: 0px;
+        left: 0px;
+        width: 32px;
+        height: 22px;
+        border-radius: 50%;
+        transform: skew(-25deg);
+        box-shadow: 8px 4px 10px 0 rgba(0, 0, 0, 0.4)
+      }
+      #stem {
+        position: absolute;
+        background-color: black;
+        top: -83px;
+        left: 30px;
+        width: 2px;
+        height: 90px;
+        box-shadow: 8px 4px 10px 0 rgba(0, 0, 0, 0.4)
+      }
+
+      #ledgers {
+        position: absolute;
+        top: -72px;
+        left: 110px;
+        display:none;
+      }
+
+      .ledger {
+        stroke: black;
+        stroke-width: 2px;
+      }
+
+#accidental-tray {
+      position: absolute;
+      top: 270px;
+      left: 70px;
+      width:362px;
+    }
+
+    #sharp-buttons {
+      position: absolute;
+      bottom: -39px;
+      display:none;
+    }
+    #natural-buttons {
+      position: absolute;
+      top: 39px;
+      display: none;
+    }
+    #flat-buttons {
+      position: absolute;
+      top: 82px;
+      display:none;
+    }
+
+    button {
+      text-align: center;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      float: left;
+    }
+
+      .nat-button {
+        background-color: white;
+        color: black;
+        padding: 10px 18.2px 10px 18.2px;
+        border-style: solid;
+        border-color: grey;
+      }
+
+      .nat-button:hover {
+        background-color:#555555;
+        color: white;
+      }
+
+      .sharp-button, .flat-button {
+        background-color:rgb(43, 43, 43);
+        padding: 5px 10px 5px 30px;
+        border: none;
+      }
+
+      .sharp-button:hover {
+        background-color: gray;
+        color: black;
+        padding: 5px 20px 5px 20px;
+      }
+
+      .flat-button {
+        padding: 5px 30px 5px 10px;
+      }
+
+      .flat-button:hover {
+        background-color: gray;
+        color: black;
+        padding: 5px 20px 5px 20px;
+      }
+
+    #level-info {
+      position: absolute;
+      top: 100px;
+      left: 110px;
+      color: black;
+      font-size: 16px;
+      text-align: center;
+      /* display: none; */
+    }
+
+.keysig-wrapper {
+  position: relative;
+  top:270px;
+  left: -20px;
+  display: none;
+}
+
+    #maj-wrapper {
+      position: relative;
+      display: inline-block;
+      left: 100px;
+    }
+
+    #min-wrapper {
+      position: relative;
+      left: 240px;
+      display: inline-block;
+    }
+
+    .dropbtn {
+      position: relative;
+      width: 100px;
+      border-radius: 5px;
+      background-color: gray;
+      color: black;
+      padding: 10px;
+      font-size: 14px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 5px;
+      font-size: 12px;
+      background-color: gray;
+      width: 100px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 2;
+    }
+
+    .dropdown-content div {
+      color: black;
+      padding: 4px 14px;
+      text-decoration: none;
+      display: block;
+      cursor: pointer;
+    }
+
+    .dropdown-content div:hover {background-color: #f1f1f1}
+
+    .submit {
+      position: relative;
+      font-size: 14px;
+      font-weight: bold;
+      text-align: center;
+      border-radius: 5px;
+      border: solid;
+      border-width: 1px;
+      padding: 10px;
+      background-color: #6A8A82;
+      width: 85px;
+      left:220px;
+      top: -45px;
+      height: 26px;
+      cursor: pointer;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
+    }
+
+    .submit:hover {
+      background-color: lightgrey;
+    }
+
+#menu-container {
+  position: absolute;
+  border-radius: 0px 15px 15px 0px;
+  background-color: dimgray;
+  height:720px;
+  width:250px;
+  z-index: 5;
+  box-shadow: 10px 0px 15px -10px black;
+}
+
+    #close-menu-icon {
+      position: absolute;
+      height: 30px;
+      top: 10px;
+      left: 10px;
+      z-index: 8;
+    }
+
+    #menu-mask {
+      position: absolute;
+      left: -270px;
+      height:730px;
+      width:270px;
+      background-color: #6A8A82;
+      z-index: 6;
+      top: 0px;
+    }
+
+      ul {
+        position: relative;
+        width: 180px;
+        left: 35px;
+        top: 30px;
+        list-style-type: none;
+        padding: 0px;
+        text-align: center;
+        color: linen;
+        font-size: 16px;
+        text-align: center;
+      }
+
+      li {
+        padding: 5px;
+        border-radius: 5px;
+      }
+
+      li:hover {
+        background-color: black;
+        cursor: pointer;
+      }
+
+      #choice-label {
+        position: relative;
+        font-size: 18px;
+        text-align: center;
+        left: 50px;
+        top: 40px;
+      }
+
+      #task-strip {
+        position: relative;
+        top: 30px;
+        font-size: 20px;
+      }
+
+      hr {
+        margin:45px;
+        border-color: black;
+      }
+
+      #instr-strip, #clef-strip {
+        top: 0px;
+        display: none;
+      }
+
+      #level-strip, #mode-strip {
+        top: 20px;
+        color: wheat;
+        display: none;
+      }
+
+      #go {
+        position: relative;
+        border: solid;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 20px;
+        width: 80px;
+        padding: 5px 10px;
+        top: 30px;
+        left: 75px;
+        color: black
+        background-color: gray;
+        text-align: center;
+        display: none;
+      }
+
+      #go:hover {
+        background-color: #6A8A82;
+      }

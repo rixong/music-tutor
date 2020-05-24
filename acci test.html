@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="../libraries/jquery-3.3.1.js"></script>
+    <style media="screen">
+
+    #accidental-tray {
+      position: absolute;
+      top: 270px;
+      left: 70px;
+      width: 490px;
+      box-sizing: border-box;
+    }
+
+    .wrapper {
+      width: 357px;
+      display: flex;
+    }
+
+    .square {
+      /* border: solid;
+      border-width: thin; */
+      width: 100%;
+      cursor: pointer;
+      margin-left: 3px;
+    }
+
+    .sharps {
+      margin-bottom: 2px;
+      display:flex;
+      justify-content:flex-end;
+    }
+    .naturals {
+    }
+    .flats {
+      margin-top: 2px;
+    }
+
+    .but {
+      background-color: #444444;
+      border-radius: 15%;
+      box-sizing: border-box;
+    }
+
+    .top, .bot {
+      width: 60%;
+      height: 36px;
+      display: flex;
+      justify-content: center;
+      padding-top: 5px;
+      /* padding-left: 8px; */
+    }
+
+    .top {
+    }
+
+    .bot {
+    }
+
+    .mid {
+      height:36px;
+      font-size: 24px;
+      font-family: sans-serif;
+      color: white;
+      text-align: center;
+      padding-top: 4px;
+    }
+
+    .mid:hover {
+        background-color: #6A8A82;
+    }
+
+    .img {
+      height: 27px;
+    }
+
+
+    </style>
+  </head>
+  <body>
+
+    <div id="accidental-tray">
+      <div class="wrapper" id="sharp-buttons">
+        <div class="square sharps">
+          <div class="but top" value=23 id='1'>
+            <img src="images/white-sharp.gif" class='img'>
+          </div>
+        </div>
+        <div class="square sharps">
+          <div class="but top" value=24 id='2'>
+            <img src="images/white-sharp.gif" class='img'>
+          </div>
+        </div>
+        <div class="square sharps">
+          <div class="but top" value=25 id='3'>
+            <img src="images/white-sharp.gif" class='img'>
+          </div>
+        </div>
+        <div class="square sharps">
+          <div class="but top" value=26 id='4'>
+            <img src="images/white-sharp.gif" class='img'>
+          </div>
+        </div>
+        <div class="square sharps">
+          <div class="but top" value=20 id='5'>
+            <img src="images/white-sharp.gif" class='img'>
+          </div>
+        </div>
+        <div class="square sharps">
+          <div class="but top" value=21 id='6'>
+            <img src="images/white-sharp.gif" class='img'>
+          </div>
+        </div>
+        <div class="square sharps">
+          <div class="but top" value=22 id='7'>
+            <img src="images/white-sharp.gif" class='img'>
+          </div>
+        </div>
+      </div>
+
+      <div class="wrapper">
+        <div class="square naturals">
+          <div class="but mid" value=3 id='9'>A</div>
+        </div>
+        <div class="square naturals">
+          <div class="but mid" value=4 id='9'>B</div>
+        </div>
+        <div class="square naturals">
+          <div class="but mid" value=5 id='9'>C</div>
+        </div>
+        <div class="square naturals">
+          <div class="but mid" value=6 id='9'>D</div>
+        </div>
+        <div class="square naturals">
+          <div class="but mid" value=0 id='9'>E</div>
+        </div>
+        <div class="square naturals">
+          <div class="but mid" value=1 id='9'>F</div>
+        </div>
+        <div class="square naturals">
+          <div class="but mid" value=2 id='9'>G</div>
+        </div>
+      </div>
+
+      <div class="wrapper" id="flat-buttons">
+
+        <div class="square flats">
+          <div class="but bot" value=13 id='9'>
+            <img src="images/white-flat.gif" class='img'>
+          </div>
+        </div>
+        <div class="square flats">
+          <div class="but bot" value=14 id='10'>
+            <img src="images/white-flat.gif" class='img'>
+          </div>
+        </div>
+        <div class="square flats">
+          <div class="but bot" value=15 id='11'>
+            <img src="images/white-flat.gif" class='img'>
+          </div>
+        </div>
+        <div class="square flats">
+          <div class="but bot" value=16 id='12'>
+            <img src="images/white-flat.gif" class='img'>
+          </div>
+        </div>
+        <div class="square flats">
+          <div class="but bot" value=10 id='12'>
+            <img src="images/white-flat.gif" class='img'>
+          </div>
+        </div>
+        <div class="square flats">
+          <div class="but bot" value=11 id='12'>
+            <img src="images/white-flat.gif" class='img'>
+          </div>
+        </div>
+        <div class="square flats">
+          <div class="but bot" value=12 id='12'>
+            <img src="images/white-flat.gif" class='img'>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <button class="b1" type="button" name="button">click Here</button>
+  <button class="b2" type="button" name="button">click 2</button>
+
+    <script type="text/javascript">
+
+    let drkSharp = "'images/sharp.gif'";
+    $('.sharps, .flats').mouseenter(function() {
+      console.log($(this).find('div'));
+      $(this).find('div').css({
+        'width':'100%',
+        'backgroundColor':'#6A8A82'
+      });
+    });
+    $('.sharps, .flats').mouseleave(function() {
+      $(this).find('div').css({
+        'width':'60%',
+        'backgroundColor':'#444444'
+      });
+    });
+
+    $('.but').click(function() {
+    });
+
+    $('.b1').click(function() {
+      $('.flat-buttons, .sharp-buttons').slideUp('slow');
+    });
+    $('.b2').click(function() {
+      $('.flat-buttons, .sharp-buttons').slideDown('slow');
+    });
+
+    </script>
+
+  </body>
+</html>

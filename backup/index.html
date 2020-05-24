@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="shortcut icon" href="images/favicon.ico">
+  <script src="../libraries/jquery-3.3.1.js"></script>
+  <script src="../libraries/jquery.animate-colors.js"></script>
+
+  <title>Mr. G's Music Tutor</title>
+  <link rel="stylesheet" type="text/css" href="notetutor.css">
+</head>
+
+<body>
+  <div class="main-wrapper">
+    <div id="menu-mask"></div>
+    <div id="menu-container">
+      <img src="images\close-menu.png" id="close-menu-icon" alt="">
+      <label id='choice-label'>Choose Your Activity:</label>
+      <ul id='task-strip'>
+        <li class="task" id="note-tutor">- Note Names</li>
+        <li class="task "id="key-tutor">- Key Signatures</li>
+      </ul>
+      <hr>
+      <ul id="instr-strip">
+        <li class="instr" id="gen">General Music</li>
+        <li class="instr" id="flu">Flute</li>
+        <li class="instr" id="cla">Clarinet</li>
+        <li class="instr" id="sax">Saxophone</li>
+        <li class="instr" id="tpt">Trumpet</li>
+        <li class="instr" id="tbn">Trombone</li>
+        <li class="instr" id="tub">Tuba</li>
+      </ul>
+      <ul id="level-strip">
+        <li class="lev" id="beg">Beginning</li>
+        <li class="lev" id="int">Intermediate</li>
+        <li class="lev" id="adv">Advanced</li>
+      </ul>
+      <ul id = 'clef-strip'>
+        <li class="clef" value=1>Treble Clef</li>
+        <li class="clef" value=2>Bass Clef</li>
+        <li class="clef" value=3>Both Clefs</li>
+      </ul>
+      <ul id = 'mode-strip'>
+        <li class="mode" value='maj'>Only Major Keys</li>
+        <li class="mode" value='both'>Major & Relative Minor</li>
+      </ul>
+      <div id="go"></div>
+
+    </div>
+
+    <div id="main-window">
+      <img src="images\hamburger_icon.png" id="open-menu-icon" alt="">
+      <div id="stats-box">
+        <div id="correct" class="score">Correct:</div>
+        <div id="total" class="score">Total:</div>
+        <div id="wrong" class="score">Missed:</div>
+      </div>
+      <button id="resetButton" onclick="reset()">Reset</button>
+      <div id='seconds-counter'></div>
+      <div id="staff-container">
+        <svg height="200px" width="600px" id="staff">
+          <line class="lines" x1='0px' y1='1px' x2='350px' y2='1px' />
+          <line class="lines" x1='0px' y1='25px' x2='350px' y2='25px' />
+          <line class="lines" x1='0px' y1='49px' x2='350px' y2='49px' />
+          <line class="lines" x1='0px' y1='73px' x2='350px' y2='73px' />
+          <line class="lines" x1='0px' y1='97px' x2='350px' y2='97px' />
+        </svg>
+
+        <div id="note-display">
+          <div id="head"></div>
+          <div id="stem"></div>
+        </div>
+
+        <svg height="300px" width="50px" id="ledgers">
+          <line id="ledgUpper3" class='ledger' x1='0px' y1='1px' x2='42px' y2='1px' />
+          <line id="ledgUpper2" class='ledger' x1='0px' y1='25px' x2='42px' y2='25px' />
+          <line id="ledgUpper1" class='ledger' x1='0px' y1='49px' x2='42px' y2='49px' />
+          <line id="ledgLower1" class='ledger' x1='0px' y1='193px' x2='42px' y2='193px' />
+          <line id="ledgLower2" class='ledger' x1='0px' y1='217px' x2='42px' y2='217px' />
+          <line id="ledgLower3" class='ledger' x1='0px' y1='241px' x2='42px' y2='241px' />
+        </svg>
+
+        <img src="images/treble.gif" id="treble">
+        <img src="images/bass.gif" id="bass">
+
+        <div id="accidental-box">
+          <img src="images/sharp.gif" id="sharp1" class="accidental">
+          <img src="images/sharp.gif" id="sharp2" class="accidental">
+          <img src="images/sharp.gif" id="sharp3" class="accidental">
+          <img src="images/sharp.gif" id="sharp4" class="accidental">
+          <img src="images/sharp.gif" id="sharp5" class="accidental">
+          <img src="images/sharp.gif" id="sharp6" class="accidental">
+
+          <img src="images/flat.gif" id="flat1" class="accidental">
+          <img src="images/flat.gif" id="flat2" class="accidental">
+          <img src="images/flat.gif" id="flat3" class="accidental">
+          <img src="images/flat.gif" id="flat4" class="accidental">
+          <img src="images/flat.gif" id="flat5" class="accidental">
+          <img src="images/flat.gif" id="flat6" class="accidental">
+        </div>
+
+      </div>
+      <div class="keysig-wrapper">
+        <div class='dropdown' id="maj-wrapper">
+          <button class="dropbtn">Major Keys</button>
+          <div class="dropdown-content" id='maj-list'>
+            <div class='but-maj' id='3'>A Major</div>
+            <div class='but-maj' id="5">B Major</div>
+            <div class='but-maj' id="0">C Major</div>
+            <div class='but-maj' id="2">D Major</div>
+            <div class='but-maj' id="4">E Major</div>
+            <div class='but-maj' id="-1">F Major</div>
+            <div class='but-maj' id="1">G Major</div>
+            <div class='but-maj' id="-4">Ab Major</div>
+            <div class='but-maj' id="-2">Bb Major</div>
+            <div class='but-maj' id="-5">Db Major</div>
+            <div class='but-maj' id="-3">Eb Major</div>
+            <div class='but-maj' id="-6">Gb Major</div>
+            <div class='but-maj' id="6">F# Major</div>
+          </div>
+        </div>
+        <div class='dropdown' id="min-wrapper">
+          <button class="dropbtn">Minor Keys</button>
+          <div class="dropdown-content" id='min-list'>
+            <div class='but-min' id='0'>A Minor</div>
+            <div class='but-min' id="2">B Minor</div>
+            <div class='but-min' id="-3">C Minor</div>
+            <div class='but-min' id="-1">D Minor</div>
+            <div class='but-min' id="1">E Minor</div>
+            <div class='but-min' id="-4">F Minor</div>
+            <div class='but-min' id="-2">G Minor</div>
+            <div class='but-min' id="-5">Bb Minor</div>
+            <div class='but-min' id="-6">Eb Minor</div>
+            <div class='but-min' id="4">C# Minor</div>
+            <div class='but-min' id="6">D# Minor</div>
+            <div class='but-min' id="3">F# Minor</div>
+            <div class='but-min' id="5">G# Minor</div>
+          </div>
+      </div>
+        <div class='submit'>Submit?</div>
+      </div>
+      
+      <div id="accidental-tray">
+        <div id="sharp-buttons">
+          <button class="sharp-button" value=23><img src="images/white-sharp.gif" height="25px"></button>
+          <button class="sharp-button" value=24><img src="images/white-sharp.gif" height="25px"></button>
+          <button class="sharp-button" value=25><img src="images/white-sharp.gif" height="25px"></button>
+          <button class="sharp-button" value=26><img src="images/white-sharp.gif" height="25px"></button>
+          <button class="sharp-button" value=20><img src="images/white-sharp.gif" height="25px"></button>
+          <button class="sharp-button" value=21><img src="images/white-sharp.gif" height="25px"></button>
+          <button class="sharp-button" value=22><img src="images/white-sharp.gif" height="25px"></button>
+        </div>
+        <div id="natural-buttons">
+          <button class="nat-button" value=3>A</button>
+          <button class="nat-button" value=4>B</button>
+          <button class="nat-button" value=5>C</button>
+          <button class="nat-button" value=6>D</button>
+          <button class="nat-button" value=0>E</button>
+          <button class="nat-button" value=1>F</button>
+          <button class="nat-button" value=2>G</button>
+        </div>
+        <div id="flat-buttons">
+          <button class="flat-button" value=13><img src="images/white-flat.gif" height="25px"></button>
+          <button class="flat-button" value=14><img src="images/white-flat.gif" height="25px"></button>
+          <button class="flat-button" value=15><img src="images/white-flat.gif" height="25px"></button>
+          <button class="flat-button" value=16><img src="images/white-flat.gif" height="25px"></button>
+          <button class="flat-button" value=10><img src="images/white-flat.gif" height="25px"></button>
+          <button class="flat-button" value=11><img src="images/white-flat.gif" height="25px"></button>
+          <button class="flat-button" value=12><img src="images/white-flat.gif" height="25px"></button>
+        </div>
+        <div id="level-info"></div>
+      </div>
+
+    </div>
+  </div>
+  <SCRIPT LANGUAGE="JavaScript" SRC="instrument-objects.js"></SCRIPT>
+  <SCRIPT LANGUAGE="JavaScript" SRC="keytutor.js"></SCRIPT>
+  <SCRIPT LANGUAGE="JavaScript" SRC="notetutor.js"></SCRIPT>
+
+</body>
+
+</html>
